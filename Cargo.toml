@@ -1,0 +1,10 @@
+[package]
+name = "fuwafetch"
+version = "0.1.0"
+edition = "2021"
+authors = ["Fuwafetch Team"]
+description = "Fast, blazingly minimal system fetcher for FuwaOS"
+
+[dependencies]
+sysinfo = "0.30.5"
+colored = "2.1.0"
