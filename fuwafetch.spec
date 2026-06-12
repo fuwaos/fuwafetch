@@ -1,18 +1,16 @@
 Name:           fuwafetch
 Version:        0.1.0
+%global debug_package %{nil}
 Release:        1%{?dist}
-Summary:        NeoFetch for FuwaOS
+Summary:        System fetch utility for FuwaOS
 
-License:        BSD-3-Clause license 
-URL:            https://fuwaos.duckdns.org
+License:        MPL-2.0
 Source0:        %{name}-%{version}.tar.gz
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust cargo
 
 %description
-Кастомный fetch-скрипт на Rust для вывода системной инфы и морды Фувы. 
-Жрет ноль ресурсов, работает моментально.
+Custom system fetch written in Rust.
 
 %prep
 %setup -q
@@ -21,12 +19,13 @@ BuildRequires:  cargo
 cargo build --release
 
 %install
-mkdir -p %{buildroot}%{_bindir}
-install -m 0755 target/release/%{name} %{buildroot}%{_bindir}/%{name}
+rm -rf $RPM_BUILD_ROOT
+mkdir -p %{buildroot}/usr/bin
+install -m 755 target/release/fuwafetch %{buildroot}/usr/bin/
 
 %files
-%{_bindir}/%{name}
+/usr/bin/fuwafetch
 
 %changelog
-* Thu Jun 11 2026 FuwaOS Team <admin@fuwaos.duckdns.org> - 0.1.0-1
-- Первый релиз. Добавлена морда маскота и базовая системная инфа.
+* Fri Jun 12 2026 Gora <gora@fuwaos> - 0.1.0-1
+- Initial build

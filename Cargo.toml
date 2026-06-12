@@ -2,8 +2,9 @@
 name = "fuwafetch"
 version = "0.1.0"
 edition = "2021"
-authors = ["Fuwafetch Team"]
+authors = ["FuwaOS"]
 description = "Fast, blazingly minimal system fetcher for FuwaOS"
+license = "MPL-2.0"
 
 [dependencies]
 sysinfo = "0.30.5"
